@@ -1,1 +1,37 @@
+import tkinter as tk
+from ursina import *
+
+# Setup
+app = Ursina()
+root = tk.Tk()
+root.title("Pyfruit")  # Set window title
+root.geometry("800x600")      # Set window size (width x height)
+
+
+# run Ursina
+def Ursinacommand():
+    app.run()
+
+# text to add cube
+AddCubeText=tk.Label(root, text='Add Cube')
+AddCubeText.grid(row=2,column=1)
+
+# button to run Ursina
+LaunchUrsina=tk.Button(text='RUN', command=Ursinacommand)
+LaunchUrsina.grid(row=1,column=1)
+
+# Make cube input box
+CubeEntry=tk.Entry(root, width=30)
+CubeEntry.grid(row=3,column=1)
+
+#setup make cube script
+def inputcube():
+    input = CubeEntry.get()
+    variables[input]=Entity(model='cube',color=color.red)
+
+# Add Cube Button
+AddCubeButton=tk.Button(text='Enter', command=inputcube)
+AddCubeButton.grid(row=4, column=1)
+
+root.mainloop()
 
